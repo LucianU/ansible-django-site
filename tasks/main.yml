@@ -8,14 +8,13 @@
     virtualenv: "{{ site_virtualenv }}"
   sudo: yes
 
-- name: run syncdb, migrate and collectstatic commands
+- name: run migrate and collectstatic commands
   django_manage:
     command: "{{ item }}"
     app_path: "{{ site_temp_dir }}"
     pythonpath: "{{ site_temp_dir }}"
     virtualenv: "{{ site_virtualenv }}"
   with_items:
-    - syncdb
     - migrate
     - collectstatic
   sudo: yes
