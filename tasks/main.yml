@@ -12,7 +12,6 @@
   django_manage:
     command: "{{ item }}"
     app_path: "{{ site_temp_dir }}"
-    settings: "{{ site_django_settings }}"
     pythonpath: "{{ site_temp_dir }}"
     virtualenv: "{{ site_virtualenv }}"
   with_items:
