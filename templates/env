@@ -1,3 +1,3 @@
 DEBUG=False
-SECRET_KEY=cpk8+#_*ypy4e_f3%gk9&dh%qkg=2vo4g0gv=x!o*@k74ike_
-DATABASE_URL=psql:///{{ cookiecutter.repo_name }}
+SECRET_KEY={{ site_secret_key }}
+DATABASE_URL={{ site_db_url }}
