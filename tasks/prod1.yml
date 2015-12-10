@@ -1,7 +1,7 @@
 ---
-- name: make sure /var/www exists
+- name: make sure web apps root exists
   file:
-    path: /var/www
+    path: "{{ site_repo_root|dirname }}"
     owner: root
     group: root
     mode: 0755
