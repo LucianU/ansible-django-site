@@ -2,7 +2,7 @@
 - name: install the .env file
   template:
     src: env
-    dest: {{ site_temp_dir }}/{{ site_repo_name }}/.env
+    dest: "{{ site_temp_dir }}/{{ site_repo_name }}/.env"
 
 - name: sync manage.py to repo root
   command: rsync -av {{ site_temp_dir }}/manage.py {{ site_repo_root }}/
