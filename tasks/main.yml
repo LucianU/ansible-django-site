@@ -26,7 +26,7 @@
 - name: install django bash completion
   get_url:
     url: "{{ site_django_bash_completion_url }}"
-    dest: /usr/share/bash-completion/completions/django
+    dest: /etc/bash_completion.d/django
     owner: root
     group: root
     mode: 0644
