@@ -20,15 +20,6 @@
   sudo: yes
   sudo_user: "{{ site_app_user }}"
 
-- name: append app_user_group to groups of www-data
-  user:
-    name: www-data
-    groups: "{{ site_app_group }}"
-    append: yes
-  notify:
-    - restart nginx
-  sudo: yes
-
 - include: prod2.yml
   when: site_prod_env
 

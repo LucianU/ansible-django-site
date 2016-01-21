@@ -17,3 +17,13 @@
     path: "{{ site_temp_dir }}"
     state: absent
   sudo: yes
+
+- name: append app_user_group to groups of www-data
+  user:
+    name: www-data
+    groups: "{{ site_app_group }}"
+    append: yes
+  notify:
+    - restart nginx
+  sudo: yes
+
