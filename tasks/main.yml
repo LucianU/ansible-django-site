@@ -11,8 +11,8 @@
 - name: run migrate and collectstatic commands
   django_manage:
     command: "{{ item }}"
-    app_path: "{{ site_temp_dir }}"
-    pythonpath: "{{ site_temp_dir }}"
+    app_path: "{{ site_build_path }}"
+    pythonpath: "{{ site_build_path }}"
     virtualenv: "{{ site_virtualenv }}"
   with_items:
     - migrate

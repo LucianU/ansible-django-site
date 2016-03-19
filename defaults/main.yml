@@ -5,8 +5,8 @@ site_django_bash_completion_url: "https://raw.githubusercontent.com/django/djang
 site_django_settings: "{{ site_repo_name }}.settings"
 # We install everything while the project is cloned in the temp dir,
 # because we need to collect the static assets before deploying everything
-site_pip_requirements: "{{ site_temp_dir }}/requirements/{{ ENV }}.pip"
+site_pip_requirements: "{{ site_build_path }}/requirements/{{ ENV }}.pip"
 site_prod_env: ENV != "development"
 site_deployment_path: /var/www/{{ site_repo_name }}
-site_temp_dir: /tmp/{{ site_repo_name }}
+site_build_path: /tmp/{{ site_repo_name }}
 site_virtualenv: "{{ python_virtualenvs_dir }}/{{ site_repo_name }}"

@@ -2,19 +2,19 @@
 - name: install the .env file
   template:
     src: env
-    dest: "{{ site_temp_dir }}/{{ site_repo_name }}/.env"
+    dest: "{{ site_build_path }}/{{ site_repo_name }}/.env"
 
 - name: sync manage.py to deployment path
-  command: rsync -av {{ site_temp_dir }}/manage.py {{ site_deployment_path }}/
+  command: rsync -av {{ site_build_path }}/manage.py {{ site_deployment_path }}/
   sudo: yes
 
 - name: sync project code to deployment path
-  command: rsync -avz --delete {{ site_temp_dir }}/{{ site_repo_name }} {{ site_deployment_path}}/
+  command: rsync -avz --delete {{ site_build_path }}/{{ site_repo_name }} {{ site_deployment_path}}/
   sudo: yes
 
 - name: delete the cloned project
   file:
-    path: "{{ site_temp_dir }}"
+    path: "{{ site_build_path }}"
     state: absent
   sudo: yes
 

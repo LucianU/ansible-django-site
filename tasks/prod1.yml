@@ -1,5 +1,5 @@
 ---
-- name: make sure web apps root exists
+- name: make sure deployment path parent dir exists
   file:
     path: "{{ site_deployment_path|dirname }}"
     owner: root
@@ -16,15 +16,15 @@
     state: present
   sudo: yes
 
-- name: clone project to temp dir
+- name: clone project to build dir
   git:
     repo: "{{ site_repo_url }}"
-    dest: "{{ site_temp_dir }}"
+    dest: "{{ site_build_path }}"
     accept_hostkey: yes
 
 - name: set the app user as the owner
   file:
-    path: "{{ site_temp_dir }}"
+    path: "{{ site_build_path }}"
     owner: "{{ site_app_user }}"
     group: "{{ site_app_user }}"
     recurse: yes
