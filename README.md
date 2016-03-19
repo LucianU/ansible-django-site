@@ -12,7 +12,8 @@ Role Variables
 |`site_django_settings`| Django settings module | `{{ site_repo_name }}.settings` |
 |`site_pip_requirements`| Path to the requirements file | `{{ site_temp_dir }}/requirements/{{ ENV }}.pip` |
 |`site_prod_env`| Whether the current deployment is for production | `ENV != development`
-|`site_repo_root`| Path to where the site is deployed | `/var/www/{{ site_repo_name }}` |
+|`site_deployment_path`| Path to where the site is deployed | `/var/www/{{
+site_repo_name }}` |
 |`site_temp_dir`| Path to temp dir used for static files build and others | `/tmp/{{ site_repo_name }}` |
 |`site_virtualenv`| Path to virtual env used by the site | `{{ python_virtualenvs_dir }}/{{ site_repo_name }}` |
 

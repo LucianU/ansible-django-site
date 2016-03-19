@@ -4,12 +4,12 @@
     src: env
     dest: "{{ site_temp_dir }}/{{ site_repo_name }}/.env"
 
-- name: sync manage.py to repo root
-  command: rsync -av {{ site_temp_dir }}/manage.py {{ site_repo_root }}/
+- name: sync manage.py to deployment path
+  command: rsync -av {{ site_temp_dir }}/manage.py {{ site_deployment_path }}/
   sudo: yes
 
-- name: sync project code to repo root
-  command: rsync -avz --delete {{ site_temp_dir }}/{{ site_repo_name }} {{ site_repo_root}}/
+- name: sync project code to deployment path
+  command: rsync -avz --delete {{ site_temp_dir }}/{{ site_repo_name }} {{ site_deployment_path}}/
   sudo: yes
 
 - name: delete the cloned project

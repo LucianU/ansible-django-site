@@ -7,6 +7,6 @@ site_django_settings: "{{ site_repo_name }}.settings"
 # because we need to collect the static assets before deploying everything
 site_pip_requirements: "{{ site_temp_dir }}/requirements/{{ ENV }}.pip"
 site_prod_env: ENV != "development"
-site_repo_root: /var/www/{{ site_repo_name }}
+site_deployment_path: /var/www/{{ site_repo_name }}
 site_temp_dir: /tmp/{{ site_repo_name }}
 site_virtualenv: "{{ python_virtualenvs_dir }}/{{ site_repo_name }}"

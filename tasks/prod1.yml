@@ -1,7 +1,7 @@
 ---
 - name: make sure web apps root exists
   file:
-    path: "{{ site_repo_root|dirname }}"
+    path: "{{ site_deployment_path|dirname }}"
     owner: root
     group: root
     mode: 0755
@@ -11,7 +11,7 @@
 - name: create app user
   user:
     name: "{{ site_app_user }}"
-    home: "{{ site_repo_root }}"
+    home: "{{ site_deployment_path }}"
     createhome: no
     state: present
   sudo: yes
