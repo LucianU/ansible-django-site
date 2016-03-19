@@ -34,5 +34,5 @@
 - name: install the .env file
   template:
     src: env
-    dest: "{{ site_build_path }}/{{ site_repo_name }}/.env"
+    dest: "{{ site_build_path }}/{{ site_dir_name }}/.env"
   sudo: yes
