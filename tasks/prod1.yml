@@ -1,19 +1,19 @@
 ---
-- name: make sure deployment path parent dir exists
-  file:
-    path: "{{ site_deployment_path|dirname }}"
-    owner: root
-    group: root
-    mode: 0755
-    state: directory
-  sudo: yes
-
 - name: create app user
   user:
     name: "{{ site_app_user }}"
     home: "{{ site_deployment_path }}"
     createhome: no
     state: present
+  sudo: yes
+
+- name: add group of app_user to groups of www-data
+  user:
+    name: www-data
+    groups: "{{ site_app_group }}"
+    append: yes
+  notify:
+    - restart nginx
   sudo: yes
 
 - name: clone project to build dir
@@ -29,4 +29,10 @@
     group: "{{ site_app_user }}"
     recurse: yes
     state: directory
+  sudo: yes
+
+- name: install the .env file
+  template:
+    src: env
+    dest: "{{ site_build_path }}/{{ site_repo_name }}/.env"
   sudo: yes

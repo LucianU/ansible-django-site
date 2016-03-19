@@ -1,4 +1,13 @@
 ---
+- name: install django bash completion
+  get_url:
+    url: "{{ site_django_bash_completion_url }}"
+    dest: /etc/bash_completion.d/django
+    owner: root
+    group: root
+    mode: 0644
+  sudo: yes
+
 - include: prod1.yml
   when: site_prod_env
 
@@ -22,13 +31,3 @@
 
 - include: prod2.yml
   when: site_prod_env
-
-- name: install django bash completion
-  get_url:
-    url: "{{ site_django_bash_completion_url }}"
-    dest: /etc/bash_completion.d/django
-    owner: root
-    group: root
-    mode: 0644
-  when: ENV == "development"
-  sudo: yes
