@@ -1,6 +1,15 @@
 django-site
 ===========
-Deploys a Django site.
+- Installs Django BASH completion
+- Creates a user for the app
+- Adds the user's group to the groups of www-data user
+- Clones the project to a build dir and makes the app user the owner
+- Installs an `.env` file
+- Installs Python dependencies
+- Runs migrations and `collectstatic`
+- Copies the site to the deployment path
+- Deletes the build dir
+
 
 Role Variables
 ==============
