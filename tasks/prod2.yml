@@ -8,10 +8,6 @@
     state: directory
   sudo: yes
 
-- name: sync manage.py to deployment path
-  command: rsync -av {{ site_build_path }}/manage.py {{ site_deployment_path }}/
-  sudo: yes
-
 - name: sync project code to deployment path
   command: rsync -avz --delete {{ site_build_path }}/{{ site_repo_name }} {{ site_deployment_path}}/
   sudo: yes
