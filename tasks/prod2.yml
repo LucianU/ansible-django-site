@@ -1,5 +1,5 @@
 ---
-- name: make sure deployment path parent dir exists
+- name: make sure deployment path exists
   file:
     path: "{{ site_deployment_path }}"
     owner: root
