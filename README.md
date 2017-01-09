@@ -25,14 +25,11 @@
 |----------|-------------|---------------|
 |`site_app_user`| User running the app | `{{ site_dir_name }}` |
 |`site_app_group`| Group of the user running the app | `{{ site_app_user }}` |
-
 |`site_django_settings`| Django settings module | `{{ site_dir_name }}.settings` |
 |`site_pip_requirements`| Path to the requirements file | `{{ site_build_path }}/requirements/{{ ENV }}.pip` |
 |`site_virtualenv`| Path to virtual env used by the site | `{{ python_virtualenvs_dir }}/{{ site_dir_name }}` |
-
 |`site_deployment_path`| Path to which we deploy the site | `/var/www/` |
 |`site_build_path`| Intermediate path used to run migrations and collect static files | `/tmp/{{ site_dir_name }}` |
-
 |`site_django_bash_completion_url`| URL of the bash completion file for Django | `https://raw.githubusercontent.com/django/django/master/extras/django_bash_completion` |
 |`site_prod_env`| Flag that says whether we're deploying to production | `ENV != development` |
 
